@@ -54,9 +54,230 @@
         href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Dancing+Script:wght@400..700&display=swap"
         rel="stylesheet">
 
+    <!-- AOS Smooth Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Smooth Animations CSS -->
     <link rel="stylesheet" href="CSS/smooth-animations.css">
 
+    <!-- Premium "About Us" Exclusive Theme & Hover Effects -->
+    <style>
+        /* ----------------------------------------------------
+           ☕ ULTRA-LUXURY ESPRESSO & CHAMPAGNE THEME
+           ---------------------------------------------------- */
+        body:not(.dark-mode) {
+            --bg-body: #FBF9F6 !important; /* Rich Creamy Ivory */
+            --text-primary: #1A1108 !important; /* Deepest Espresso Black/Brown */
+            --text-secondary: #4A3B32 !important; /* Warm Truffle */
+            --primary-color: #C69C6D !important; /* Luxurious Champagne Gold */
+            --bg-card: rgba(255, 255, 255, 0.98) !important; /* Made virtually solid to remove blur needs entirely */
+            --border-luxe: rgba(198, 156, 109, 0.25) !important;
+            background-color: var(--bg-body) !important; /* Forced solid background color for ultimate FPS */
+            background-image: none !important; 
+            color: var(--text-primary);
+        }
+
+        body:not(.dark-mode) .bg-light {
+            background-color: #F8F5EE !important; /* Solid ambient ivory instead of transparent */
+        }
+
+        /* Typography Upgrade: Serif Headers for pure luxury */
+        body:not(.dark-mode) .intro-section h2,
+        body:not(.dark-mode) .values-section-modern h2,
+        body:not(.dark-mode) .values-section-modern h3,
+        body:not(.dark-mode) .history-section-modern h2,
+        body:not(.dark-mode) .history-section-modern h3,
+        body:not(.dark-mode) .team-section-modern h2,
+        body:not(.dark-mode) .team-section-modern h3,
+        body:not(.dark-mode) .testimonials-section h2,
+        body:not(.dark-mode) .testimonials-section h4 {
+            color: var(--text-primary) !important;
+            font-family: 'Playfair Display', serif !important; 
+            letter-spacing: 0.5px;
+        }
+
+        /* Paragraph text */
+        body:not(.dark-mode) .intro-section p,
+        body:not(.dark-mode) .values-section-modern p,
+        body:not(.dark-mode) .history-section-modern p,
+        body:not(.dark-mode) .team-section-modern p,
+        body:not(.dark-mode) .testimonials-section p {
+            color: var(--text-secondary) !important;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Accent texts (Gold Glow) */
+        body:not(.dark-mode) .accent-text,
+        body:not(.dark-mode) .stat-number,
+        body:not(.dark-mode) .timeline-date {
+            color: var(--primary-color) !important;
+            text-shadow: 0 4px 15px rgba(198, 156, 109, 0.25);
+        }
+        
+        /* Ensure Hero escapes the brightness */
+        body:not(.dark-mode) .hero-content-modern h1,
+        body:not(.dark-mode) .hero-content-modern p,
+        body:not(.dark-mode) .hero-content-modern .hero-subtitle,
+        body:not(.dark-mode) .experience-content h2,
+        body:not(.dark-mode) .experience-content p,
+        body:not(.dark-mode) .footer h3,
+        body:not(.dark-mode) .footer p,
+        body:not(.dark-mode) .footer a {
+            color: #FFFFFF !important;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+        }
+
+        /* Remove Brown Tint on Hero Image to make product hyper-visible while retaining readable white text */
+        body:not(.dark-mode) .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.6) 100%) !important;
+        }
+
+        /* ----------------------------------------------------
+           ⚡ ULTRA-PREMIUM HOVER EFFECTS & GLASSMORPHISM
+           ---------------------------------------------------- */
+        
+        /* Luxury Cards - Ultra Performance 60FPS Optimization */
+        .value-card-modern, .team-card-modern, .testimonial-card, .timeline-card {
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s ease, border-color 0.6s ease !important; /* Replaced 'all' to stop AOS from triggering layout lag */
+            border: 1px solid var(--border-luxe) !important;
+            border-radius: 16px !important;
+            
+            /* Deleted backdrop-filter: blur entirely. Weak laptop GPUs cannot handle blurring while scrolling. */
+            
+            /* Aggressive Hardware Render Isolation */
+            transform: translate3d(0, 0, 0); 
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
+        body:not(.dark-mode) .value-card-modern, 
+        body:not(.dark-mode) .team-card-modern, 
+        body:not(.dark-mode) .testimonial-card, 
+        body:not(.dark-mode) .timeline-card {
+            box-shadow: 0 10px 25px rgba(26, 17, 8, 0.05) !important; /* Flattened shadow complexity array for native scroll speed */
+            background: var(--bg-card) !important;
+        }
+
+        /* Smooth Uplift Hover states with inner gold inset */
+        .value-card-modern:hover, .team-card-modern:hover, .testimonial-card:hover, .timeline-card:hover {
+            transform: translateY(-12px) scale(1.02) !important;
+            box-shadow: 0 30px 60px rgba(26, 17, 8, 0.1), inset 0 0 0 1.5px rgba(198, 156, 109, 0.6) !important;
+            border-color: rgba(198, 156, 109, 0.8) !important;
+            background: #ffffff !important; 
+        }
+
+        /* Hero Image & Intro Image Zoom FX */
+        .hero-bg-wrapper, .intro-image-wrapper {
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(26, 17, 8, 0.15);
+        }
+        .hero-bg-img, .intro-img-main {
+            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+        }
+        .hero-bg-wrapper:hover .hero-bg-img, .intro-image-wrapper:hover .intro-img-main {
+            transform: scale(1.08) !important;
+        }
+
+        /* Premium Intro Image Decor (Gold offset square) */
+        body:not(.dark-mode) .intro-img-decoration {
+            border: 2px solid var(--primary-color) !important;
+            opacity: 0.6;
+            border-radius: 16px;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .intro-image-wrapper:hover .intro-img-decoration {
+            transform: translate(20px, 20px);
+            opacity: 1;
+        }
+
+        /* Premium Elegant Outline Button */
+        .btn-primary-outline {
+            transition: all 0.6s ease !important;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border-color: var(--primary-color) !important;
+            color: var(--primary-color) !important;
+            border-radius: 30px !important;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            padding: 14px 32px !important;
+            background: transparent !important;
+        }
+        .btn-primary-outline::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--primary-color);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .btn-primary-outline:hover {
+            color: #fff !important;
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 10px 20px rgba(198, 156, 109, 0.3) !important;
+        }
+        .btn-primary-outline:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* UI Icons */
+        body:not(.dark-mode) .card-icon {
+            background: rgba(198, 156, 109, 0.08) !important;
+            color: var(--primary-color) !important;
+            border: 1px solid var(--border-luxe);
+            transition: all 0.5s ease;
+        }
+        body:not(.dark-mode) .value-card-modern:hover .card-icon {
+            background: var(--primary-color) !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 20px rgba(198, 156, 109, 0.4);
+            transform: scale(1.1);
+        }
+
+        /* Subtle universal shadow on ALL interactive items */
+        body:not(.dark-mode) a, 
+        body:not(.dark-mode) button,
+        body:not(.dark-mode) .social-link svg {
+            transition: box-shadow 0.4s ease, transform 0.4s ease !important; /* Switched filter to box-shadow for performance */
+        }
+
+        body:not(.dark-mode) a:hover, 
+        body:not(.dark-mode) button:hover,
+        body:not(.dark-mode) .social-link:hover svg {
+            /* Migrated off expensive drop-shadow filters into pure box-shadows */
+            box-shadow: 0 4px 10px rgba(198, 156, 109, 0.25) !important;
+        }
+        
+        /* Prevent double shadows */
+        body:not(.dark-mode) .value-card-modern:hover, 
+        body:not(.dark-mode) .team-card-modern:hover, 
+        body:not(.dark-mode) .testimonial-card:hover, 
+        body:not(.dark-mode) .timeline-card:hover,
+        body:not(.dark-mode) .btn-primary-outline:hover {
+            filter: none !important;
+        }
+
+        /* Top Progress Line Animation - 60fps Refactor */
+        #premium-scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FBF9F6, #D4AF37, #C69C6D, #8B5A2B); 
+            width: 100%; /* Fixed width */
+            transform: scaleX(0); /* Scaling dynamically */
+            transform-origin: left;
+            z-index: 10000;
+            box-shadow: 0 2px 6px rgba(198, 156, 109, 0.5);
+            will-change: transform; /* Hardware Acceleration */
+        }
+    </style>
 </head>
 
 <body>
@@ -124,7 +345,7 @@
                 class="hero-bg-img">
         </div>
         <div class="container hero-container">
-            <div class="hero-content-modern animate-on-scroll fade-in-up">
+            <div class="hero-content-modern" data-aos="fade-up" data-aos-duration="1500">
                 <span class="hero-subtitle">EST. 2014 · HomeSphere 2.0 AR</span>
                 <h1>Crafting Stories,<br>Building Homes</h1>
                 <p>We believe that furniture is not just about filling a space, but about creating a sanctuary that
@@ -141,12 +362,12 @@
     <section class="intro-section section-padding">
         <div class="container">
             <div class="intro-grid">
-                <div class="intro-image-wrapper animate-on-scroll slide-in-left">
+                <div class="intro-image-wrapper" data-aos="fade-right" data-aos-delay="200">
                     <img src="image/product/EmeraldEase™ Velvet 3-Seater Sofa.webp" alt="Our Team Philosophy"
                         class="intro-img-main">
                     <div class="intro-img-decoration"></div>
                 </div>
-                <div class="intro-content animate-on-scroll slide-in-right">
+                <div class="intro-content" data-aos="fade-left" data-aos-delay="300">
                     <h2 class="section-heading">Design with <span class="accent-text">Purpose</span></h2>
                     <p class="intro-lead">At Home Decor Furniture, we blend timeless craftsmanship with modern
                         aesthetics to create pieces that stand the test of time.</p>
@@ -176,13 +397,13 @@
     <!-- Our Values Section (Cards) -->
     <section class="values-section-modern section-padding bg-light">
         <div class="container">
-            <div class="section-header text-center animate-on-scroll fade-in">
+            <div class="section-header text-center" data-aos="fade-up">
                 <h2 class="section-heading">Our Core Values</h2>
                 <p class="section-subheading">The principles that guide every piece we create.</p>
             </div>
 
             <div class="values-grid-modern">
-                <div class="value-card-modern animate-on-scroll zoom-in">
+                <div class="value-card-modern" data-aos="zoom-in" data-aos-delay="100">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -195,7 +416,7 @@
                         feel.</p>
                 </div>
 
-                <div class="value-card-modern animate-on-scroll zoom-in" style="transition-delay: 0.2s;">
+                <div class="value-card-modern" data-aos="zoom-in" data-aos-delay="250">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -209,7 +430,7 @@
                     </p>
                 </div>
 
-                <div class="value-card-modern animate-on-scroll zoom-in" style="transition-delay: 0.4s;">
+                <div class="value-card-modern" data-aos="zoom-in" data-aos-delay="400">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -228,7 +449,7 @@
     <!-- History Timeline (Redesigned) -->
     <section class="history-section-modern section-padding">
         <div class="container">
-            <div class="section-header text-center animate-on-scroll fade-in">
+            <div class="section-header text-center" data-aos="fade-up">
                 <h2 class="section-heading">Our Journey</h2>
                 <div class="header-decoration">
                     <span class="decoration-line"></span>
@@ -240,7 +461,7 @@
             <div class="timeline-modern">
                 <div class="timeline-track"></div>
 
-                <div class="timeline-row animate-on-scroll slide-in-left">
+                <div class="timeline-row" data-aos="fade-right" data-aos-delay="100">
                     <div class="timeline-date">2014</div>
                     <div class="timeline-content-wrapper">
                         <div class="timeline-card">
@@ -251,7 +472,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-row row-reverse animate-on-scroll slide-in-right">
+                <div class="timeline-row row-reverse" data-aos="fade-left" data-aos-delay="200">
                     <div class="timeline-date">2017</div>
                     <div class="timeline-content-wrapper">
                         <div class="timeline-card">
@@ -262,7 +483,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-row animate-on-scroll slide-in-left">
+                <div class="timeline-row" data-aos="fade-right" data-aos-delay="300">
                     <div class="timeline-date">2020</div>
                     <div class="timeline-content-wrapper">
                         <div class="timeline-card">
@@ -272,7 +493,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-row row-reverse animate-on-scroll slide-in-right">
+                <div class="timeline-row row-reverse" data-aos="fade-left" data-aos-delay="400">
                     <div class="timeline-date">2025</div>
                     <div class="timeline-content-wrapper">
                         <div class="timeline-card">
@@ -289,7 +510,7 @@
     <!-- Experience Section (New) -->
     <section class="experience-section no-padding">
         <div class="experience-wrapper">
-            <div class="experience-content animate-on-scroll fade-in">
+            <div class="experience-content" data-aos="fade-up" data-aos-duration="1000">
                 <h2>Experience the Comfort</h2>
                 <p>Visit our showroom or explore our gallery to feel the difference.</p>
                 <a href="gallery.html" class="btn-primary-outline">View Gallery</a>
@@ -303,14 +524,14 @@
     <!-- Team Section (Redesigned) -->
     <section class="team-section-modern section-padding bg-light">
         <div class="container">
-            <div class="section-header text-center animate-on-scroll fade-in">
+            <div class="section-header text-center" data-aos="fade-up">
                 <h2 class="section-heading">Meet the Founders</h2>
                 <p class="section-subheading">The minds behind the craft.</p>
             </div>
 
             <div class="team-grid-modern">
                 <!-- Member 1 -->
-                <div class="team-card-modern animate-on-scroll zoom-in">
+                <div class="team-card-modern" data-aos="zoom-in" data-aos-delay="100">
                     <div class="member-avatar-wrapper">
                         <svg class="avatar-anim avatar-founder" viewBox="0 0 200 200"
                             xmlns="http://www.w3.org/2000/svg">
@@ -353,7 +574,7 @@
                 </div>
 
                 <!-- Member 2 -->
-                <div class="team-card-modern animate-on-scroll zoom-in" style="transition-delay: 0.1s;">
+                <div class="team-card-modern" data-aos="zoom-in" data-aos-delay="250">
                     <div class="member-avatar-wrapper">
                         <svg class="avatar-anim avatar-creative" viewBox="0 0 200 200"
                             xmlns="http://www.w3.org/2000/svg">
@@ -395,7 +616,7 @@
                 </div>
 
                 <!-- Member 3 -->
-                <div class="team-card-modern animate-on-scroll zoom-in" style="transition-delay: 0.2s;">
+                <div class="team-card-modern" data-aos="zoom-in" data-aos-delay="400">
                     <div class="member-avatar-wrapper">
                         <svg class="avatar-anim avatar-ops" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <defs>
@@ -435,7 +656,7 @@
                 </div>
 
                 <!-- Member 4 -->
-                <div class="team-card-modern animate-on-scroll zoom-in" style="transition-delay: 0.3s;">
+                <div class="team-card-modern" data-aos="zoom-in" data-aos-delay="550">
                     <div class="member-avatar-wrapper">
                         <svg class="avatar-anim avatar-dev" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <defs>
@@ -480,9 +701,9 @@
     <!-- Testimonials Section -->
     <section class="testimonials-section">
         <div class="container">
-            <h2 class="section-title animate-on-scroll fade-in">Words From Our Customers</h2>
+            <h2 class="section-title" data-aos="fade-up">Words From Our Customers</h2>
             <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll slide-in-left">
+                <div class="testimonial-card" data-aos="fade-right" data-aos-delay="100">
                     <div class="testimonial-content">
                         <p>"The quality exceeded my expectations. This furniture didn't just fill a room, it completed
                             our home. Exceptional service from start to finish."</p>
@@ -496,7 +717,7 @@
                     </div>
                 </div>
 
-                <div class="testimonial-card animate-on-scroll slide-in-up">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="testimonial-content">
                         <p>"I was looking for pieces with character and found them here. The craftsmanship is
                             outstanding, and it's clear they care about every detail."</p>
@@ -510,7 +731,7 @@
                     </div>
                 </div>
 
-                <div class="testimonial-card animate-on-scroll slide-in-right">
+                <div class="testimonial-card" data-aos="fade-left" data-aos-delay="500">
                     <div class="testimonial-content">
                         <p>"An amazing experience. The team helped me find the perfect sofa. It's the centerpiece of our
                             living room, and we couldn't be happier!"</p>
@@ -657,6 +878,37 @@
 
     <!-- Smooth Scroll & Animations -->
     <script src="js/smooth-scroll.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Premium AOS Animations
+        AOS.init({
+            duration: 1500, 
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50,
+            delay: 50
+        });
+
+        // Premium Top Progress Tracking
+        document.addEventListener("DOMContentLoaded", () => {
+            if (!document.body.classList.contains('dark-mode')) {
+                // 1. Top Progress Line
+                const progressBar = document.createElement('div');
+                progressBar.id = 'premium-scroll-progress';
+                document.body.appendChild(progressBar);
+
+                window.addEventListener('scroll', () => {
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    
+                    // Update Top Horitonzal Progress using GPU-Accelerated Transform instead of Layout-Thrashing Width
+                    const scrolledPercent = winScroll / height;
+                    progressBar.style.transform = `scaleX(${scrolledPercent})`;
+                }, { passive: true });
+            }
+        });
+    </script>
 </body>
 
 </html>

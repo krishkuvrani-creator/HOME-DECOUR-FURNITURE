@@ -240,16 +240,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 3.6)
     
-    // PHASE 5: SPLIT DOOR EXIT (5.0-5.6s) - Start earlier, faster
+    // PHASE 5: SPLIT DOOR EXIT (5.0-5.6s) - Start earlier, aggressively
     .to([preloaderLeft, preloaderRight], {
         x: (index) => index === 0 ? '-100%' : '100%',
-        duration: 0.6,
-        ease: "power3.inOut",
-        stagger: 0.02
+        duration: 0.8,
+        ease: "expo.inOut",
+        stagger: 0.05
     }, 5.0)
     
-    // PHASE 6: REVEAL NAVBAR & HERO (5.2-6.0s)
-    // Fully reveal navbar (it's already at 0.3 opacity)
+    // PHASE 6: REVEAL NAVBAR & HERO (5.1-6.0s)
+    // Pure opacity fade to guarantee perfectly smooth 60fps load without layout thrashing
+    .fromTo(heroSection, {
+        opacity: 0
+    }, {
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out"
+    }, 5.1)
+    
+    // Fully reveal navbar
     .to(navbar, {
         opacity: 1,
         duration: 0.4,
@@ -260,22 +269,14 @@ document.addEventListener('DOMContentLoaded', function() {
     .to(navbarItems, {
         opacity: 1,
         x: 0,
-        duration: 0.4,
+        duration: 0.6,
         stagger: {
             each: 0.05,
-            ease: "power3.out"
+            ease: "expo.out"
         }
     }, 5.3)
     
-    // Hero section reveal with scale effect
-    .to(heroSection, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        ease: "power3.out"
-    }, 5.3)
-    
-    // PHASE 7: CLEANUP (5.6s) - Earlier, smoother
+    // PHASE 7: CLEANUP (5.8s)
     .add(() => {
         document.body.classList.remove('loading');
     }, 5.6)

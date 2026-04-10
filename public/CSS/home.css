@@ -48,12 +48,10 @@
     color: white;
     max-width: 800px;
     padding: 0 20px;
-    background: rgba(0, 0, 0, 0.4);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background: rgba(26, 17, 8, 0.7); /* Espresso translucent core instead of expensive blur */
     border-radius: 20px;
     padding: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(198, 156, 109, 0.2); /* Champagne border */
 }
 
 .slide-content h1 {
@@ -76,15 +74,13 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
+    background: rgba(26, 17, 8, 0.6);
+    border: 1px solid rgba(198, 156, 109, 0.3);
     color: white;
     font-size: 2rem;
     padding: 15px 20px;
     cursor: pointer;
     border-radius: 50%;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     z-index: 4;
 }
@@ -194,7 +190,7 @@
 /* Welcome Section */
 .welcome-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: transparent;
 }
 
 .container {
@@ -288,7 +284,7 @@
 /* Categories Section */
 .categories-section {
     padding: 100px 0;
-    background: white;
+    background: transparent;
 }
 
 .categories-section h2 {
@@ -402,7 +398,7 @@
 /* Why Choose Us Section */
 .why-choose-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    background: #1A1108; /* Deep Espresso */
     color: white;
 }
 
@@ -423,11 +419,9 @@
 .reason-card {
     text-align: center;
     padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
     border-radius: 20px;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(198, 156, 109, 0.2);
     transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(30px);
@@ -457,7 +451,7 @@
 .reason-icon svg {
     width: 40px;
     height: 40px;
-    fill: #F4D03F;
+    fill: #C69C6D; /* Champagne Gold */
 }
 
 .reason-card h3 {
@@ -474,8 +468,8 @@
 /* CTA Section */
 .cta-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
-    color: white;
+    background: #C69C6D; /* Champagne Gold solid block */
+    color: #1A1108;
 }
 
 .cta-content {

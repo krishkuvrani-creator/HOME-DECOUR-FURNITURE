@@ -370,6 +370,15 @@ document.addEventListener('DOMContentLoaded', function () {
         applyFilters();
     }
 
+    // Globally accessible Stagger Reveal specifically built for the Museum Curtain API
+    function revealCardsStaggered(cards) {
+        cards.forEach((card, i) => {
+            setTimeout(() => {
+                card.classList.add('card-revealed');
+            }, i * 80); // 80ms gap maintains the Museum Reveal cascading physics perfectly
+        });
+    }
+
     // Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.1,
@@ -451,60 +460,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Simple image loading with fade-in effect
-    const galleryImages = document.querySelectorAll('.product-card img');
-    galleryImages.forEach(img => {
-        // Add loading class initially
-        img.classList.add('loading');
-
-        // Add loading overlay
-        const overlay = document.createElement('div');
-        overlay.className = 'image-loading-overlay';
-        img.parentElement.appendChild(overlay);
-
-        // Show loading overlay
-        overlay.style.opacity = '1';
-
-        // Handle image load
-        img.addEventListener('load', function () {
-            this.classList.remove('loading');
-            this.classList.add('loaded');
-
-            // Hide loading overlay
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-                if (overlay.parentElement) {
-                    overlay.remove();
-                }
-            }, 800);
-        });
-
-        // Handle image error
-        img.addEventListener('error', function () {
-            this.classList.remove('loading');
-            this.classList.add('loaded');
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-                if (overlay.parentElement) {
-                    overlay.remove();
-                }
-            }, 800);
-        });
-
-        // If image is already loaded, show it immediately
-        if (img.complete) {
-            img.classList.remove('loading');
-            img.classList.add('loaded');
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-                if (overlay.parentElement) {
-                    overlay.remove();
-                }
-            }, 800);
-        }
-    });
-
-
+    // Native image rendering preferred over artificial JS overlays for cleaner UI performance.
 
     // Check for category parameter and apply filter
     const params = new URLSearchParams(window.location.search);
@@ -680,13 +636,17 @@ document.addEventListener('DOMContentLoaded', function () {
             const priceMatch = price >= currentMinPrice && price <= currentMaxPrice;
 
             if (categoryMatch && searchMatch && priceMatch) {
+                // Initialize clean slate
                 item.style.display = 'block';
-                item.style.opacity = '1';
+                item.style.opacity = '1'; /* Visibility retained due to curtain covering it directly */
                 item.style.transform = 'translateY(0)';
+                // Violently rip off the old classes so the CSS Curtain crashes completely back down covering the image!
+                item.classList.remove('animate-in', 'card-revealed');
                 visibleItems.push(item);
             } else {
                 item.style.opacity = '0';
                 item.style.transform = 'translateY(20px)';
+                item.classList.remove('animate-in', 'card-revealed');
                 setTimeout(() => {
                     item.style.display = 'none';
                 }, 300);
@@ -725,6 +685,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Update results counter
         updateResultsCounter(visibleItems.length);
+
+        // Allow the browser exactly one hardware frame to execute the CSS class removal and drop the curtains down
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                // Re-trigger the global cascading sequence
+                revealCardsStaggered(visibleItems);
+            });
+        });
     }
 
     // Sorting for "All Items" view: group by category, then normal before 3D, then by optional priority
@@ -993,14 +961,7 @@ document.addEventListener('DOMContentLoaded', function () {
             renderSkeletonCards(8);
         }
 
-        // Staggered reveal helper — fades cards in one by one
-        function revealCardsStaggered(cards) {
-            cards.forEach((card, i) => {
-                setTimeout(() => {
-                    card.classList.add('card-revealed');
-                }, i * 80); // 80ms gap between each card
-            });
-        }
+        // revealCardsStaggered has been successfully refactored globally to assist applyFilters()
 
         try {
             const res = await fetch('/api/products', { credentials: 'include' });

@@ -27,7 +27,47 @@
     <link rel="icon" type="image/png" sizes="48x48" href="image/Logo maker project.webp">
     <link rel="apple-touch-icon" sizes="180x180" href="image/Logo maker project.webp">
     <link rel="manifest" href="manifest.json">
-    <!-- Inline styles migrated to CSS/login.css -->
+    <!-- Mascot Styling -->
+    <style>
+        .login-section { position: relative; overflow: hidden; } /* Ensure mascots stay inside */
+        .login-form { position: relative; z-index: 5; margin-top: 40px; } /* Keep form above background */
+
+        .bg-mascot-container {
+            position: absolute;
+            z-index: 1; /* In the background */
+            animation: floatMascot 4s ease-in-out infinite alternate;
+        }
+
+        /* Specific positions for background mascots */
+        .bg-bear { top: 12%; left: 8%; animation-delay: 0s; }
+        .bg-owl { top: 45%; right: 7%; animation-delay: -1.5s; transform: scale(0.9); }
+        .bg-rabbit { bottom: 15%; left: 12%; animation-delay: -3s; transform: scale(1); }
+
+        @keyframes floatMascot {
+            0% { transform: translateY(0px) rotate(-3deg); }
+            100% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        .mascot-svg {
+            overflow: visible;
+            display: inline-block;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+        }
+
+        /* Generic Paws animation for all animals */
+        .mascot-paws {
+            transform-origin: center;
+            transform: translateY(140px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .mascot-paws.covering-eyes {
+            transform: translateY(0px) rotate(-5deg); /* Slight tilt for cuteness */
+        }
+        .mascot-paws.covering-eyes .right-paw {
+            transform: rotate(10deg); /* Tilt right paw slightly opposite */
+            transform-origin: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -75,7 +115,103 @@
             <div class="blob b2"></div>
             <div class="blob b3"></div>
         </div>
+
+        <!-- Background Mascots -->
+        
+        <!-- Background Bear -->
+        <div class="bg-mascot-container bg-bear">
+            <svg viewBox="0 0 200 150" width="160" height="120" class="mascot-svg">
+                <!-- Ears -->
+                <circle cx="45" cy="35" r="22" fill="#6A4121" />
+                <circle cx="155" cy="35" r="22" fill="#6A4121" />
+                <circle cx="45" cy="35" r="12" fill="#C39D76" />
+                <circle cx="155" cy="35" r="12" fill="#C39D76" />
+                <!-- Head -->
+                <rect x="25" y="30" width="150" height="120" rx="60" fill="#8B5A2B" />
+                <!-- Muzzle -->
+                <ellipse cx="100" cy="115" rx="40" ry="28" fill="#F5F1EA" />
+                <path d="M 85 105 Q 100 120 115 105" stroke="#3E2723" stroke-width="3" stroke-linecap="round" fill="none" />
+                <circle cx="100" cy="98" r="9" fill="#3E2723" />
+                <!-- Eyes Background -->
+                <circle cx="68" cy="72" r="18" fill="#FFF" />
+                <circle cx="132" cy="72" r="18" fill="#FFF" />
+                <!-- Pupils -->
+                <g class="mascot-pupils">
+                    <circle cx="68" cy="72" r="7" fill="#3E2723" />
+                    <circle cx="132" cy="72" r="7" fill="#3E2723" />
+                </g>
+                <!-- Paws -->
+                <g class="mascot-paws">
+                    <ellipse cx="62" cy="78" rx="22" ry="32" fill="#A0522D" class="left-paw" />
+                    <ellipse cx="138" cy="78" rx="22" ry="32" fill="#A0522D" class="right-paw" />
+                </g>
+            </svg>
+        </div>
+
+        <!-- Background Owl -->
+        <div class="bg-mascot-container bg-owl">
+            <svg viewBox="0 0 200 150" width="140" height="110" class="mascot-svg">
+                <!-- Owl Ears (Tufts) -->
+                <path d="M 50 70 L 30 20 L 70 50 Z" fill="#546E7A" />
+                <path d="M 150 70 L 170 20 L 130 50 Z" fill="#546E7A" />
+                <!-- Owl Body -->
+                <ellipse cx="100" cy="100" rx="75" ry="60" fill="#78909C" />
+                <!-- Eye discs -->
+                <circle cx="65" cy="80" r="30" fill="#CFD8DC" />
+                <circle cx="135" cy="80" r="30" fill="#CFD8DC" />
+                <!-- Eyes Background -->
+                <circle cx="65" cy="80" r="18" fill="#FFF" />
+                <circle cx="135" cy="80" r="18" fill="#FFF" />
+                <!-- Beak -->
+                <path d="M 90 105 L 110 105 L 100 125 Z" fill="#E6A817" />
+                <!-- Pupils -->
+                <g class="mascot-pupils">
+                    <circle cx="65" cy="80" r="7" fill="#263238" />
+                    <circle cx="135" cy="80" r="7" fill="#263238" />
+                </g>
+                <!-- Wings (Instead of paws) -->
+                <g class="mascot-paws">
+                    <ellipse cx="50" cy="85" rx="30" ry="40" fill="#546E7A" class="left-paw"/>
+                    <ellipse cx="150" cy="85" rx="30" ry="40" fill="#546E7A" class="right-paw"/>
+                </g>
+            </svg>
+        </div>
+
+        <!-- Background Rabbit -->
+        <div class="bg-mascot-container bg-rabbit">
+            <svg viewBox="0 0 200 180" width="130" height="140" class="mascot-svg">
+                <!-- Rabbit Ears -->
+                <ellipse cx="70" cy="50" rx="15" ry="45" fill="#FFFFFF" transform="rotate(-15 70 50)" />
+                <ellipse cx="130" cy="50" rx="15" ry="45" fill="#FFFFFF" transform="rotate(15 130 50)" />
+                <ellipse cx="70" cy="50" rx="8" ry="30" fill="#FFB6C1" transform="rotate(-15 70 50)" />
+                <ellipse cx="130" cy="50" rx="8" ry="30" fill="#FFB6C1" transform="rotate(15 130 50)" />
+                <!-- Rabbit Head -->
+                <ellipse cx="100" cy="120" rx="65" ry="50" fill="#FFFFFF" />
+                <!-- Rabbit Muzzle -->
+                <ellipse cx="100" cy="135" rx="25" ry="18" fill="#F0F0F0" />
+                <circle cx="100" cy="125" r="5" fill="#EFA5C8" />
+                <path d="M 100 130 L 100 140 M 85 140 Q 100 150 115 140" stroke="#333" stroke-width="2" fill="none" />
+                <!-- Eyes Background -->
+                <circle cx="70" cy="105" r="16" fill="#FFF" />
+                <circle cx="130" cy="105" r="16" fill="#FFF" />
+                <!-- Ring around eyes so they aren't invisible on white -->
+                <circle cx="70" cy="105" r="17" fill="none" stroke="#E0E0E0" stroke-width="1"/>
+                <circle cx="130" cy="105" r="17" fill="none" stroke="#E0E0E0" stroke-width="1"/>
+                <!-- Pupils -->
+                <g class="mascot-pupils">
+                    <circle cx="70" cy="105" r="6" fill="#333" />
+                    <circle cx="130" cy="105" r="6" fill="#333" />
+                </g>
+                <!-- Paws -->
+                <g class="mascot-paws">
+                    <ellipse cx="60" cy="115" rx="20" ry="25" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1" class="left-paw"/>
+                    <ellipse cx="140" cy="115" rx="20" ry="25" fill="#FFFFFF" stroke="#E0E0E0" stroke-width="1" class="right-paw"/>
+                </g>
+            </svg>
+        </div>
+
         <form class="login-form" id="loginForm">
+            
             <h2>Login to Your Account</h2>
             <p class="form-tagline">HomeSphere 2.0 AR: The Future of Furniture is Here.</p>
             <div class="demo-credentials" style="display:none">
@@ -233,6 +369,67 @@
     <script src="js/mobile-menu.js"></script>
     <!-- Smooth Scroll & Animations -->
     <script src="js/smooth-scroll.js"></script>
+
+    <!-- Interactive Mascot Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const passwordInput = document.getElementById('password');
+            const allPaws = document.querySelectorAll('.mascot-paws');
+            const allPupilsGroups = document.querySelectorAll('.mascot-pupils');
+            
+            // Maximum distance pupils can move from center
+            const maxPupilMove = 8; 
+
+            // Track mouse movement
+            document.addEventListener('mousemove', (e) => {
+                // If password is focused, don't move eyes (they are covered)
+                if (document.activeElement === passwordInput) return;
+
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+
+                // Animate all mascots independently based on their on-screen position
+                allPupilsGroups.forEach(pupils => {
+                    const mascotContainer = pupils.closest('.mascot-svg');
+                    const rect = mascotContainer.getBoundingClientRect();
+                    
+                    // Calculate center point of current mascot
+                    const mascotCenterX = rect.left + rect.width / 2;
+                    const mascotCenterY = rect.top + rect.height / 2;
+
+                    // Calculate angle and distance
+                    const angle = Math.atan2(mouseY - mascotCenterY, mouseX - mascotCenterX);
+                    
+                    // Clamp distance mapping up to 1
+                    const distanceX = Math.min(Math.max((mouseX - mascotCenterX) / 300, -1), 1);
+                    const distanceY = Math.min(Math.max((mouseY - mascotCenterY) / 300, -1), 1);
+                    
+                    const moveX = Math.cos(angle) * Math.abs(distanceX) * maxPupilMove;
+                    const moveY = Math.sin(angle) * Math.abs(distanceY) * maxPupilMove;
+
+                    // Apply transform
+                    pupils.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+            });
+
+            // Password Field Events
+            passwordInput.addEventListener('focus', () => {
+                allPaws.forEach(paws => paws.classList.add('covering-eyes'));
+                // Return eyes to center behind hands
+                allPupilsGroups.forEach(pupils => {
+                    pupils.style.transform = `translate(0px, 0px)`;
+                    pupils.style.transition = 'transform 0.3s ease';
+                });
+            });
+
+            passwordInput.addEventListener('blur', () => {
+                allPaws.forEach(paws => paws.classList.remove('covering-eyes'));
+                allPupilsGroups.forEach(pupils => {
+                    pupils.style.transition = 'none'; // Re-enable snappy tracking
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

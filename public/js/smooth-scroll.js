@@ -6,14 +6,18 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========================================================================
-    // 1. SMOOTH SCROLL DISABLED - Using native browser scrolling
+    // 1. NATIVE BROWSER SCROLLING (For Flawless Touchpad Performance)
     // ========================================================================
     
-    // Lenis smooth scroll is disabled for faster performance
-    // Using browser's default scroll behavior instead
-    let lenis = null; // Keep variable for compatibility
+    // Javascript-based smooth-scrolling engines often fight against the native hardware 
+    // momentum built into laptop touchpads, causing scrolling to feel "difficult" or "heavy".
+    // We completely bypass JS scrolling and rely purely on native hardware scrolling (which is 
+    // automatically buttery-smooth on modern touchpads) coupled with CSS hardware acceleration.
+    let lenis = null;
+    console.log('✅ JS Smooth Scroll completely disabled (Using Native scrolling for 1:1 touchpad perfection)');
     
-    console.log('✅ Native scroll active (Lenis disabled for better performance)');
+    // Apply native CSS smooth scrolling for anchor links instead
+    document.documentElement.style.scrollBehavior = 'smooth';
 
     // ========================================================================
     // 2. INTERSECTION OBSERVER FOR SCROLL ANIMATIONS

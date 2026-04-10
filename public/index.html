@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Dancing+Script:wght@400..700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="CSS/responsive.css">
@@ -57,6 +57,36 @@
 
     <!-- Smooth Animations CSS -->
     <link rel="stylesheet" href="CSS/smooth-animations.css">
+
+    <!-- Premium Global Foundation Sweep -->
+    <style id="premium-foundation">
+        body:not(.dark-mode) {
+            --bg-body: #FBF9F6 !important; /* Rich Creamy Ivory */
+            --text-primary: #1A1108 !important; /* Deepest Espresso Black/Brown */
+            --text-secondary: #4A3B32 !important; /* Warm Truffle */
+            --primary-color: #C69C6D !important; /* Luxurious Champagne Gold */
+            background-color: var(--bg-body) !important;
+            color: var(--text-primary);
+        }
+        
+        /* Map major headings to the luxury serif font */
+        h1:not(.navbar-name), h2, .slide-content h1, .modern-welcome-title, .categories-section h2, .why-choose-section h2, .cta-content h2 {
+            font-family: 'Playfair Display', serif !important;
+            letter-spacing: 1px;
+        }
+
+        /* Fluid Navigation Integration */
+        .navbar {
+            background-color: var(--bg-body) !important;
+            border-bottom: 1px solid rgba(198, 156, 109, 0.15) !important;
+        }
+        .navbar-link { color: var(--text-primary) !important; }
+        .navbar-link:hover, .navbar-link.active { color: var(--primary-color) !important; }
+
+        body {
+            background-color: var(--bg-body);
+        }
+    </style>
 </head>
 
 <body>

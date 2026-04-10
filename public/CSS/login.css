@@ -28,13 +28,21 @@
     overflow: hidden;
     padding: 120px 20px 60px;
     /* Account for navbar */
-    /* Dynamic background with blend modes */
+    z-index: 1;
+}
+
+/* 60fps Fixed Background Layer (Replaces sluggish background-attachment: fixed) */
+.login-section::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
     background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%),
+        linear-gradient(135deg, rgba(42, 33, 24, 0.6) 0%, rgba(20, 15, 10, 0.75) 100%),
         url('../image/au 2.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    transform: translateZ(0); /* Hardware isolation */
 }
 
 /* Background Blobs Animation */

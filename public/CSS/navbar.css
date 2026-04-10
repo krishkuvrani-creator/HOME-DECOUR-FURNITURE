@@ -61,6 +61,63 @@
     margin: 0;
     letter-spacing: 1px;
     text-transform: uppercase;
+    position: relative;
+    padding: 4px 12px;
+    border-radius: 8px;
+    overflow: hidden; /* Vital to contain the spinning gradient */
+    z-index: 1;
+}
+
+/* Parikrama (Orbiting / Rotating) Golden Glowing Border */
+.navbar-name::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    background: conic-gradient(transparent, transparent, transparent, transparent, #D2691E);
+    opacity: 0;
+    z-index: -2;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    transform-origin: center center;
+    will-change: transform;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Internal solid mask so only the border edge shows the spinning gradient */
+.navbar-name::after {
+    content: '';
+    position: absolute;
+    inset: 3px; /* Defines the border thickness */
+    background: #ffffff; /* Matches Light Navbar */
+    border-radius: 5px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+/* Trigger animation on hover */
+.navbar-brand:hover .navbar-name::before {
+    opacity: 1;
+    animation: rotateParikrama 4s linear infinite; 
+}
+
+.navbar-brand:hover .navbar-name::after {
+    opacity: 1;
+}
+
+/* The continuous perfect circle 'Parikrama' spin */
+@keyframes rotateParikrama {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Ensure the center mask fits dark mode if active */
+body.dark-mode .navbar-name::after {
+    background: #111; 
 }
 
 .navbar-menu {

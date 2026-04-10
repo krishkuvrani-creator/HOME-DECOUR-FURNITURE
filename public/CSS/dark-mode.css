@@ -3009,10 +3009,138 @@ body.dark-mode .review-count {
   color: var(--dm-muted) !important;
 }
 
-/* Redesigned About Us Page Dark Mode Overrides */
+/* ── Redesigned About Us Page — Luxury Dark Mode (Espresso & Champagne Gold) ── */
 body.dark-mode .modern-about-hero {
-  background: #0f0f11 !important;
-  /* Fallback */
+  background: #100d09 !important;
+}
+
+body.dark-mode .hero-overlay {
+  background: linear-gradient(rgba(10,7,3,0.55), rgba(10,7,3,0.82)) !important;
+}
+
+body.dark-mode .intro-section,
+body.dark-mode .values-section-modern,
+body.dark-mode .history-section-modern,
+body.dark-mode .team-section-modern,
+body.dark-mode .testimonials-section {
+  background: #1A1108 !important;
+  color: #F5EFE6 !important;
+}
+
+body.dark-mode .bg-light {
+  background: #221608 !important;
+}
+
+body.dark-mode .section-heading,
+body.dark-mode .hero-content-modern h1,
+body.dark-mode .intro-lead {
+  color: #F5EFE6 !important;
+}
+
+body.dark-mode .section-subheading,
+body.dark-mode .intro-content p {
+  color: #C4B49A !important;
+}
+
+body.dark-mode .intro-stats {
+  border-top-color: rgba(198, 156, 109, 0.2) !important;
+}
+
+body.dark-mode .value-card-modern,
+body.dark-mode .team-card-modern,
+body.dark-mode .timeline-card,
+body.dark-mode .testimonial-card {
+  background: #2A1E10 !important;
+  border: 1px solid rgba(198, 156, 109, 0.18) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+}
+
+body.dark-mode .value-card-modern:hover,
+body.dark-mode .team-card-modern:hover,
+body.dark-mode .timeline-card:hover {
+  border-color: rgba(198, 156, 109, 0.45) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55) !important;
+}
+
+body.dark-mode .value-card-modern h3,
+body.dark-mode .team-card-modern h3,
+body.dark-mode .timeline-card h3,
+body.dark-mode .member-info h3,
+body.dark-mode .testimonial-content p {
+  color: #F5EFE6 !important;
+}
+
+body.dark-mode .value-card-modern p,
+body.dark-mode .team-card-modern p,
+body.dark-mode .timeline-card p,
+body.dark-mode .member-info p,
+body.dark-mode .author-info h4 {
+  color: #B0A090 !important;
+}
+
+body.dark-mode .card-icon {
+  background: rgba(198, 156, 109, 0.12) !important;
+  color: #C69C6D !important;
+}
+
+body.dark-mode .value-card-modern:hover .card-icon {
+  background: #C69C6D !important;
+  color: #1A1108 !important;
+}
+
+body.dark-mode .timeline-date {
+  background: #221608 !important;
+  border-color: #C69C6D !important;
+  color: #C69C6D !important;
+  box-shadow: 0 0 0 5px #1A1108 !important;
+}
+
+body.dark-mode .timeline-track {
+  background: rgba(198, 156, 109, 0.2) !important;
+}
+
+body.dark-mode .decoration-line {
+  background: rgba(198, 156, 109, 0.25) !important;
+}
+
+body.dark-mode .decoration-dot {
+  background: #C69C6D !important;
+}
+
+body.dark-mode .stat-number {
+  color: #C69C6D !important;
+}
+
+body.dark-mode .stat-label {
+  color: #8A7A68 !important;
+}
+
+body.dark-mode .experience-content {
+  background: #1A1108 !important;
+  border-right: 1px solid rgba(198, 156, 109, 0.2) !important;
+}
+
+body.dark-mode .btn-primary-outline {
+  border-color: #C69C6D !important;
+  color: #C69C6D !important;
+}
+
+body.dark-mode .btn-primary-outline:hover {
+  background: #C69C6D !important;
+  color: #1A1108 !important;
+}
+
+body.dark-mode .member-role {
+  color: #C69C6D !important;
+}
+
+body.dark-mode .author-avatar {
+  background: #C69C6D !important;
+  color: #1A1108 !important;
+}
+
+body.dark-mode .author-info span {
+  color: #8A7A68 !important;
 }
 
 body.dark-mode .hero-overlay {

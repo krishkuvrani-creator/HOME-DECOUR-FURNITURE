@@ -58,18 +58,7 @@
 }
 
 .modern-welcome-bg {
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  width: 900px;
-  height: 400px;
-  background: radial-gradient(ellipse at center, #ffe5c1 0%, #fff8f3 70%, transparent 100%);
-  opacity: 0.5;
-  filter: blur(40px);
-  transform: translateX(-50%) scale(1.1);
-  z-index: 0;
-  pointer-events: none;
-  animation: floatBg 8s ease-in-out infinite alternate;
+  display: none !important; /* NUKE MASSIVE 40PX ANIMATING BLUR FOR 60FPS */
 }
 
 @keyframes floatBg {
@@ -94,9 +83,9 @@
 }
 
 .modern-feature-card {
-  background: rgba(255, 255, 255, 0.7);
+  background: #FFFFFF; /* Pure solid color instead of expensive translucent blur */
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(139, 69, 19, 0.10), 0 1.5px 8px rgba(139, 69, 19, 0.08);
+  box-shadow: 0 8px 32px rgba(139, 69, 19, 0.05), 0 1.5px 8px rgba(139, 69, 19, 0.03);
   padding: 2.2rem 1.5rem 1.5rem 1.5rem;
   min-width: 220px;
   max-width: 320px;
@@ -104,14 +93,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: box-shadow 0.3s, transform 0.3s;
+  transition: transform 0.3s;
   position: relative;
   z-index: 2;
-  border: 1.5px solid #f3e6d6;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(198, 156, 109, 0.2);
   perspective: 800px;
-  will-change: transform, box-shadow;
+  will-change: transform;
 }
 
 .modern-feature-card.is-tilting {
@@ -119,9 +106,8 @@
 }
 
 .modern-feature-card:hover {
-  box-shadow: 0 12px 40px rgba(139, 69, 19, 0.18), 0 2px 12px rgba(139, 69, 19, 0.12);
   transform: translateY(-8px) scale(1.04);
-  border-color: #ffd7a0;
+  border: 1px solid rgba(198, 156, 109, 0.6);
 }
 
 .modern-feature-icon {
